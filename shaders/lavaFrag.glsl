@@ -1,6 +1,5 @@
-
 float ease(float v) {
-  return 3.0 * pow(v, 2.0) - 2.0 * pow(v, 3.0);
+    return 3.0 * pow(v, 2.0) - 2.0 * pow(v, 3.0);
 }
 
 uniform vec3 gVecs[1000];
@@ -9,7 +8,6 @@ uniform vec3 light;
 varying vec2 vUv;
 varying vec3 vPosition;
 varying vec3 vNormal;
-
 
 float fade(float t) {
     return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
@@ -54,19 +52,7 @@ float noise(vec3 p) {
     //     s
     // );
 
-    float res = mix(
-        mix(
-            mix(grad(a, vec3(f.x, f.y, f.z)), grad(b, vec3(f.x - 1.0, f.y, f.z)), u),
-            mix(grad(a + 100, vec3(f.x, f.y - 1.0, f.z)), grad(b + 100, vec3(f.x - 1.0, f.y - 1.0, f.z)), u),
-            v
-        ),
-        mix(
-            mix(grad(a + 10, vec3(f.x, f.y, f.z - 1.0)), grad(b + 10, vec3(f.x - 1.0, f.y, f.z - 1.0)), u),
-            mix(grad(a + 110, vec3(f.x, f.y - 1.0, f.z - 1.0)), grad(b + 110, vec3(f.x - 1.0, f.y - 1.0, f.z - 1.0)), u),
-            v
-        ),
-        s
-    );
+    float res = mix(mix(mix(grad(a, vec3(f.x, f.y, f.z)), grad(b, vec3(f.x - 1.0, f.y, f.z)), u), mix(grad(a + 100, vec3(f.x, f.y - 1.0, f.z)), grad(b + 100, vec3(f.x - 1.0, f.y - 1.0, f.z)), u), v), mix(mix(grad(a + 10, vec3(f.x, f.y, f.z - 1.0)), grad(b + 10, vec3(f.x - 1.0, f.y, f.z - 1.0)), u), mix(grad(a + 110, vec3(f.x, f.y - 1.0, f.z - 1.0)), grad(b + 110, vec3(f.x - 1.0, f.y - 1.0, f.z - 1.0)), u), v), s);
 
     return res;
 }
@@ -83,7 +69,7 @@ float phong() {
 
 float gaussianBlur(float n) {
     // float sigma = clamp(n * 9.0, 0.0, 2.0);
-        float sigma = 2.5;
+    float sigma = 2.5;
 
     return (1.0 / pow((2.0 * 3.141592654 * sigma), 1.5)) * exp(-((pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + pow(vPosition.z, 2.0)) / (2.0 * sigma * sigma)));
 }
@@ -104,12 +90,21 @@ void main() {
     // gl_FragColor = vec4(ease(clamp(1.0 / n, 0.66, 0.68)) * 20.0, 0.0, 0.0, 1.0);
     // float smoothRes = smoothstep(0.0, 1.0, combinedResult * 2.0);
     // if(dot(vPosition, light) < 0.0) combinedResult = combinedResult * .9;
-    
+
     float combinedResult = mix(n, phongResult, blendFactor);
     combinedResult = mix(combinedResult, blurResult, 0.4);
 
-    gl_FragColor = vec4((clamp(combinedResult, 0.5, 0.7) - n / 6.0) * 2.0 
-    - noise(vPosition * 1.9)  
-    , 0.0, 0.0, 1.0);
+    // vec3 L = vec3(cos(delta), 0.15, 0.15);
+    // vec3 N = vNormal;
+    // vec3 R = reflect(L, N);
+    // vec3 V = normalize(cameraPosition - vNormal);
+    // float Kd = combinedResult * 3.0;
+    // float Ks = 0.5;
+    // float a = 0.2;
 
+    // float c = 0.5 + (Kd * (dot(L, N))) + Ks * pow(dot(R, V), a);
+
+    gl_FragColor = vec4((clamp(combinedResult, 0.5, 0.6) - n / 6.0) * 2.0 - noise(vPosition * 1.9), 0.0, 0.0, 1.0);
+
+    // gl_FragColor = vec4((clamp(c, 0.5, 0.6) - n / 6.0) * 2.0 - noise(vPosition * 1.9), 0.0, 0.0, 1.0);
 }

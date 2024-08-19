@@ -10,3 +10,5 @@ export const useShader = () => {
 
   return { get }
 }
+
+export const dynamic = 'force-dynamic'

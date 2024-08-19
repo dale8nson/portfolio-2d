@@ -49,11 +49,11 @@ export const Clouds = () => {
   return (
     <>
       {fragmentShader && (
-        <mesh position={[0, 1, -5]} ref={meshRef} >
-          {/* <boxGeometry args={[15, 10, 10, 256, 256, 256]} /> */}
+        <mesh position={[0, 1, -13]} ref={meshRef} >
+          {/* <boxGeometry args={[25, 25, 25, 256, 256, 256]} /> */}
           {/* <sphereGeometry args={[10, 512, 512]} /> */}
           {/* <torusKnotGeometry args={[1,1,128, 24]}/> */}
-          <planeGeometry args={[128,32,2048,2048]} />
+          <planeGeometry args={[128,64,1,1]} />
           <shaderMaterial ref={matRef} args={[{
             vertexShader: vertexShader as string, fragmentShader: fragmentShader, side: THREE.DoubleSide, uniforms: { time: {value: 0}}
             // , delta: { value: 0},
@@ -61,9 +61,12 @@ export const Clouds = () => {
             // wireframe
 
           />
-          {/* <meshBasicMaterial color={0xee0000}  side={THREE.DoubleSide} wireframe /> */}
+          {/* <meshBasicMaterial color={0xee0000}  side={THREE.DoubleSide}
+           wireframe
+           /> */}
         </mesh>
       )}
+      
     </>
   )
 }

@@ -2,6 +2,7 @@ uniform float time;
 uniform bool invert;
 uniform float intensity;
 varying vec3 vPosition;
+varying vec3 vNormal;
 
 float fade(float t) {
   return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
@@ -99,7 +100,28 @@ void main() {
   - fbm(p, 2) + fbm(p, 4)
   ;
 
-  gl_FragColor = vec4(n
-  // + cos(time) / 100.0 
-  , 0.0, 0.0, 1.0);
+  // specular + (cos x) * diffuse + (cos x)^n * specular
+
+  vec3 diffuse = vec3(invert ? (1.0 - n) * intensity : n * intensity, invert ? (1.0 - n) * intensity : n * intensity, invert ? (1.0 - n) * intensity : n * intensity);
+  
+  vec3 L = vec3(cos(time) / 3.0, 0.1, 0.35);
+  vec3 N = vNormal;
+  vec3 R = reflect(L, N);
+  vec3 V = normalize(cameraPosition - vNormal);
+  vec3 Kd = diffuse * 3.0;
+  float Ks = 0.8;
+  float a = (1.0 + sin(time)) / 2.0;
+
+  float r = 0.25 + (Kd.r * (dot(L, N))) + Ks * pow(dot(R,V), a);
+
+  float g = 0.25 + (Kd.g * (dot(L, N))) + Ks * pow(dot(R,V), a);
+
+  float b = 0.25 + (Kd.b * (dot(L, N))) + Ks * pow(dot(R,V), a);
+
+
+  // gl_FragColor = vec4(invert ? (1.0 - n) * intensity : n * intensity
+  // // + cos(time) / 100.0 
+  // , invert ? (1.0 - n) * intensity : n * intensity, invert ? (1.0 - n) * intensity : n * intensity, 1.0);
+
+  gl_FragColor = vec4(r, g, b,  (1.0 + clamp(cos(time) / 2.0, 0.2, 1.0)));
 }
