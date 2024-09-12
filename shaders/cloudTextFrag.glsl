@@ -123,5 +123,5 @@ void main() {
   // // + cos(time) / 100.0 
   // , invert ? (1.0 - n) * intensity : n * intensity, invert ? (1.0 - n) * intensity : n * intensity, 1.0);
 
-  gl_FragColor = vec4(r, g, b,  (1.0 + clamp(cos(time) / 2.0, 0.2, 1.0)));
+  gl_FragColor = vec4(clamp(r, 0.3, 1.0), clamp(g, 0.3, 1.0), clamp(b, 0.3, 1.0),  (1.0 + clamp(cos(time) / 2.0, 0.2, 1.0)));
 }

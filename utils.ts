@@ -1,3 +1,4 @@
+import { Vector2, Vector3 } from 'three'
 import { revalidateTag } from 'next/cache'
 
 export const post: (url: string, body:object) => Promise<any> = async (url: string, body:object) => {
@@ -19,4 +20,12 @@ export const post: (url: string, body:object) => Promise<any> = async (url: stri
   const json = await res.json()
 
   return json
+}
+
+export const vec3 = ([x, y, z]: [x: number, y: number, z: number]) => {
+  return new Vector3(x, y, z)
+}
+
+export const vec2 = ([x, y]: [x: number, y: number]) => {
+  return new Vector2(x, y)
 }

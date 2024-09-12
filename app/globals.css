@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "futura";
+  src: url("/futura light bt.ttf");
+}
+
+@font-face {
+  font-family: "futura-bold";
+  src: url("/futura medium bt.ttf");
+}
+
+
 a[data-testid="flowbite-footer-copyright-span"] span {
   color: #ee0000 !important;
+}
+
+footer, footer h2 {
+    font-family: futura;
+    color: black !important;
+    font-weight: 900 !important;
+    text-transform: none !important;
+    font-size: 1.25rem !important;
+}
+
+ul[data-testid="footer-groupLink"] {
+  & li {
+    line-height: 1;
+    margin-block: 0;
+  }
+  & a {
+    font-family: futura;
+    color: black;
+  }
+  & a::after {
+    content: '';
+    display: inline-block;
+    width: 0.3em;
+    border-style: solid;
+    height: 0.3em;
+    transform: rotate(50deg) skewX(10deg) translateY(-50%);
+    border-right: 0.09em solid black;
+    border-top: 0.09em solid black;
+  }
 }

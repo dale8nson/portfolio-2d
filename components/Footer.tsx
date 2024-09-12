@@ -13,17 +13,19 @@ export default function () {
               src="/DTH Logo.png"
               alt="Dale Tristan Hutchinson Logo"
               name="daleTristanHutchinson"
-              className='[&_a_span:color:#ee0000]'
+              className='[&_a]:text-[#ee0000]'
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <Footer.Title title="about" />
+              <Footer.Title title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">Profile</Footer.Link>
-                <Footer.Link href="#">Projects</Footer.Link>
                 <Footer.Link href="#">Contact</Footer.Link>
               </Footer.LinkGroup>
+            </div>
+            <div>
+            <Footer.Title title="Projects" />
             </div>
             <div>
               <Footer.Title title="Follow me" />

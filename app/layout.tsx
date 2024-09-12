@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Flex, Heading } from '@radix-ui/themes'
 import Navigation from '@/components/Navigation'
 import "./globals.css";
-import { ThemeModeScript} from "flowbite-react";
-import Footer  from "@/components/Footer";
-
+import { ThemeModeScript } from "flowbite-react";
+import { Flowbite } from "flowbite-react";
+import { mainTheme } from "@/themes";
 
 export const metadata: Metadata = {
   title: "Dale Hutchinson | Web Developer",
@@ -17,7 +17,11 @@ export const metadata: Metadata = {
     "web developer",
     "portfolio",
     "reactJS",
-    "nextJS"
+    "nextJS",
+    "threeJS",
+    "webGL",
+    "framer motion",
+    "framer motion 3D"
   ]
 };
 
@@ -26,20 +30,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <ThemeModeScript />
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          {/* <ThemeModeScript /> */}
         </head>
-      <body className="bg-black text-[#ee0000]">
-        <Flex className="min-w-screen min-h-screen">
-          <header className='flex bg-white rounded-b-md'>
-          </header>
-          <Navigation />
-          {children}
-          <Footer />
-        </Flex>
-      </body>
-    </html>
-  );
+        <body className="bg-black text-[#ee0000]">
+          <Flex className="min-w-screen min-h-screen">
+            <header className='flex bg-white rounded-b-md'>
+            </header>
+            <main>{children}</main>
+          </Flex>
+        </body>
+      </html>
+  )
 }
