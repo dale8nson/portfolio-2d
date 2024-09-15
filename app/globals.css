@@ -12,6 +12,20 @@
   src: url("/futura medium bt.ttf");
 }
 
+@font-face {
+  font-family: "optimistic";
+  src: url("/optimistic_display_md.ttf")
+}
+
+@font-face {
+  font-family: roboto;
+  src: url("/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: gt-walsheim;
+  src: url("/GT-Walsheim-Bold-Trial-BF651b7fc737c57.otf");
+}
 
 a[data-testid="flowbite-footer-copyright-span"] span {
   color: #ee0000 !important;
@@ -44,4 +58,8 @@ ul[data-testid="footer-groupLink"] {
     border-right: 0.09em solid black;
     border-top: 0.09em solid black;
   }
+}
+
+canvas {
+  transform-style: preserve-3d;
 }

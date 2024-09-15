@@ -30,7 +30,7 @@ export default function () {
             <div>
               <Footer.Title title="Follow me" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Github</Footer.Link>
+                <Footer.Link href="github.com/dale8nson">Github</Footer.Link>
                 <Footer.Link href="#">LinkedIn</Footer.Link>
               </Footer.LinkGroup>
             </div>

@@ -15,7 +15,7 @@ export default function Navigation() {
         <NavbarLink href="#" active>
           Home
         </NavbarLink>
-        <NavbarLink as={Link} href="#">
+        <NavbarLink as={Link} href="#about">
           About
         </NavbarLink>
         <NavbarLink href="#">Projects</NavbarLink>
