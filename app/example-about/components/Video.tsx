@@ -6,7 +6,7 @@ export const Video = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
   return (
-    <div className='text-black font-[futura-bold] w-[85%] md:w-1/2 mx-auto mb-32'>
+    <div className='text-black font-[futura-bold] w-[85%] md:w-1/2 mx-auto mb-16 lg:mb-32'>
         {!isPlaying && <div className='relative mx-auto mt-16 mb-2 flex justify-center align-middle'>
           <Image src='/poster-juanpe.avif' alt='juanpe' width='1326' height='746' className="w-full" />
           <div className='absolute self-center' onClick={() => setIsPlaying(true)}>

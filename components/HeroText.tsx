@@ -78,9 +78,6 @@ export const HeroText = () => {
       } animate={{ x: [0.8, -0.38] }} transition={{ duration: 0.5, delay: 1, ease: 'easeIn' }}>
         DALE
       </CloudText >
-      {/* <CloudText position={[-0.31, 0.026, 0]} scale={.0005} size={93}>
-    TRISTAN
-  </CloudText> */}
       <CloudText position={[-0.005, 0.0, 0]} scale={[.0545, .055, .055]} size={1} initial={{ x: -1.2 }} animate={{ x: [-1.2, -0.15] }} transition={{ duration: 0.5, delay: 1, ease: ['easeIn'] }}>
         HUTCHINSON
       </CloudText >

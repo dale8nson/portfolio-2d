@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { useState, useEffect, useRef, useMemo, useCallback, createElement } from 'react'
 import * as THREE from 'three'
 import { Canvas, extend, useFrame } from '@react-three/fiber'
@@ -59,7 +59,7 @@ export default function Hero() {
   // })
 
   return (
-    <Canvas ref={canvas} className='canvas !h-[90vh] !flex w-full rounded-md border-2 !my-2 border-white transform-gpu'>
+    <Canvas ref={canvas} className=' bg-black canvas !h-[90vh] !flex w-full rounded-md border-2 !my-2 border-white transform-gpu'>
       <PerspectiveCamera ref={cam} makeDefault args={[40, 16 / 10, 0.1, 100]} position={[0, 0, 0.66]} />
       <directionalLight ref={light} position={[-2, 0.5, 0]} intensity={80} />
       {/* <directionalLight ref={light} position={[0.1,0,0.1]} intensity={80} /> */}

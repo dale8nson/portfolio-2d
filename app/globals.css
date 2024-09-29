@@ -2,14 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "futura";
-  src: url("/futura light bt.ttf");
+body {
+  font-size: 16px !important;
+}
+
+.plain-link::after {
+      content: "" !important;
+      border: none !important;
+      transform: unset !important;
 }
 
 @font-face {
-  font-family: "futura-bold";
-  src: url("/futura medium bt.ttf");
+  font-family: "futura";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/futura_light_bt.ttf");
+}
+
+@font-face {
+  font-family: "futura";
+  font-style: medium;
+  font-weight: 500;
+  src: url("/futura_medium_bt.ttf");
+}
+
+@font-face {
+  font-family: "futura";
+  font-style: semibold;
+  font-weight: 700;
+  src: url("/futura-pt/FuturaCyrillicDemi.ttf");
+}
+
+@font-face {
+  font-family: "futura";
+  font-style: bold;
+  font-weight: 800;
+  src: url("/futura-pt/FuturaCyrillicBold.ttf");
+}
+
+@font-face {
+  font-family: "futura";
+  font-style: black;
+  font-weight: 900;
+  src: url("/futura-pt/FuturaCyrillicExtraBold.ttf");
 }
 
 @font-face {
@@ -31,12 +66,13 @@ a[data-testid="flowbite-footer-copyright-span"] span {
   color: #ee0000 !important;
 }
 
-footer, footer h2 {
-    font-family: futura;
-    color: black !important;
-    font-weight: 900 !important;
-    text-transform: none !important;
-    font-size: 1.25rem !important;
+footer,
+footer h2 {
+  font-family: futura;
+  color: black !important;
+  font-weight: 900 !important;
+  text-transform: none !important;
+  font-size: 1.25rem !important;
 }
 
 ul[data-testid="footer-groupLink"] {
@@ -44,10 +80,12 @@ ul[data-testid="footer-groupLink"] {
     line-height: 1;
     margin-block: 0;
   }
+
   & a {
     font-family: futura;
     color: black;
   }
+
   & a::after {
     content: '';
     display: inline-block;
@@ -60,6 +98,36 @@ ul[data-testid="footer-groupLink"] {
   }
 }
 
-canvas {
-  transform-style: preserve-3d;
+.panel {
+  width: 100vw;
+  height: 70vh;
+  flex-shrink: 0;
 }
+
+#menu-btn::after {
+  position: relative;
+  z-index: 60;
+  content: '';
+  transform: scaleX(0.8);
+  display: inline-block;
+  align-self:center;
+  justify-self: left;
+  width: 0;
+  height: 0;
+  margin-bottom: -10px;
+  margin-left: -0.4em;
+  border-width: 5px;
+  border-style: solid;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+
+/* #projects .panel h2 {
+  filter: blur(0);
+} */
+
+/* canvas {
+  transform-style: preserve-3d;
+} */

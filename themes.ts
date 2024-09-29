@@ -19,7 +19,7 @@ export const abletonTheme: CustomFlowbiteTheme = {
 
   "navbar": {
     "root": {
-      "base": "font-['futura'] flex w-full text-4xl bg-white justify-start pt-4 m-2",
+      "base": "font-['futura'] font-normal flex w-full text-4xl bg-white justify-start pt-4 m-2",
       "inner": {
         "base": "flex justify-between align-center text-4xl spacing-2"
       },
@@ -42,7 +42,8 @@ export const abletonTheme: CustomFlowbiteTheme = {
     "groupLink": {
       "link": {
         "href":"",
-        // "href":"after:content-['😀']"
+        base:"font-normal"
+        
       }
     },
     "title": {

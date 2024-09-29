@@ -1,4 +1,5 @@
 
+"use client"
 import { Footer, FooterCopyright, FooterLink, FooterLinkGroup } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter, BsLinkedin } from "react-icons/bs"
 

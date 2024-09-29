@@ -40,7 +40,7 @@ export default function RootLayout({
           <Flex className="min-w-screen min-h-screen">
             <header className='flex bg-white rounded-b-md'>
             </header>
-            <main>{children}</main>
+            {children}
           </Flex>
         </body>
       </html>
