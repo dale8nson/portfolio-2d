@@ -20,7 +20,7 @@ const CountryOptions = ({label, countryList}: {label?:string, countryList: strin
   
   const options = countryList.map(name => {
     const canonicalName = getNames().find((country: string) => country.includes(name))
-    console.log("canonicalName: ", canonicalName)
+    // console.log("canonicalName: ", canonicalName)
     const code = getCode(canonicalName)
 
     return (
@@ -44,7 +44,7 @@ const CountryOptions = ({label, countryList}: {label?:string, countryList: strin
 export function Footer() {
 
   const { footer: theme } = abletonTheme
-  console.log('footer: ', theme)
+  // console.log('footer: ', theme)
 
   const languageOptions = [
     {

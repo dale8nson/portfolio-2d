@@ -23,26 +23,26 @@ export default function Hero() {
   const cam = useRef<THREE.PerspectiveCamera | null>(null)
 
   const moveLight = (delta: number) => {
-    console.log('delta: ', delta)
+    // console.log('delta: ', delta)
     if (!light.current) return
     time.current += delta
     light.current.translateX(Math.cos(time.current))
     requestAnimationFrame(moveLight)
   }
 
-  useGSAP(() => {
-    const skewAnim = gsap.to(".canvas", {
-      rotateX: -Math.PI / 2
-    })
-    ScrollTrigger.create({
-      animation: skewAnim,
-      trigger: ".canvas",
-      start: "top top",
-      end: "bottom center",
-      toggleActions: "restart reverse restart reverse",
-      scrub: true
-    })
-  })
+  // useGSAP(() => {
+  //   const skewAnim = gsap.to(".canvas", {
+  //     rotateX: -Math.PI / 2
+  //   })
+  //   ScrollTrigger.create({
+  //     animation: skewAnim,
+  //     trigger: ".canvas",
+  //     start: "top top",
+  //     end: "bottom center",
+  //     toggleActions: "restart reverse restart reverse",
+  //     scrub: true
+  //   })
+  // })
 
   useEffect(() => {
     if(!cam.current || !canvas.current) return
@@ -59,7 +59,7 @@ export default function Hero() {
   // })
 
   return (
-    <Canvas ref={canvas} className=' bg-black canvas !h-[90vh] !flex w-full rounded-md border-2 !my-2 border-white transform-gpu'>
+    <Canvas ref={canvas} className='sticky bg-black canvas !h-[90vh] !flex w-full rounded-md border-2 !my-2 border-white transform-gpu'>
       <PerspectiveCamera ref={cam} makeDefault args={[40, 16 / 10, 0.1, 100]} position={[0, 0, 0.66]} />
       <directionalLight ref={light} position={[-2, 0.5, 0]} intensity={80} />
       {/* <directionalLight ref={light} position={[0.1,0,0.1]} intensity={80} /> */}

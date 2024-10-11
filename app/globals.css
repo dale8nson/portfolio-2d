@@ -123,6 +123,9 @@ ul[data-testid="footer-groupLink"] {
   border-right-color: transparent;
 }
 
+/* #projects-menu {
+  transform: translate(-200px, 25px);
+} */
 
 /* #projects .panel h2 {
   filter: blur(0);

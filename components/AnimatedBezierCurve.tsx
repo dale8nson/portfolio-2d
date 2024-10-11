@@ -28,7 +28,7 @@ export const AnimatedBezierCurve = ({position, scale, length, width, motionProps
   const s = new THREE.Shape()
   s.autoClose = false
   s.setFromPoints(curve.getPoints(100))
-  console.log('s.autoClose: ', s.autoClose)
+  // console.log('s.autoClose: ', s.autoClose)
 
   useEffect(() => {
     animate(mWidth, 0,{duration: 2, delay:1.7})

@@ -34,7 +34,7 @@ export const Lava = () => {
 
   }, [])
 
-  console.log('gVecs: ', gVecs)
+  // console.log('gVecs: ', gVecs)
 
   useEffect(() => {
 

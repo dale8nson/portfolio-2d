@@ -1,17 +1,17 @@
 
-"use client"
+
 import { Footer, FooterCopyright, FooterLink, FooterLinkGroup } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter, BsLinkedin } from "react-icons/bs"
 
 export default function () {
   return (
-    <Footer container>
+    <Footer className="relative z-[70] !font-[futura] !font-normal" container>
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
             <Footer.Brand
               href="https://daletristanhutchinson.com"
-              src="/DTH Logo.png"
+              src="/DTH_Logo.png"
               alt="Dale Tristan Hutchinson Logo"
               name="daleTristanHutchinson"
               className='[&_a]:text-[#ee0000]'
@@ -19,17 +19,17 @@ export default function () {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <Footer.Title title="About" />
+              <Footer.Title className="!font-normal" title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">Profile</Footer.Link>
                 <Footer.Link href="#">Contact</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-            <Footer.Title title="Projects" />
+            <Footer.Title className="!font-normal" title="Projects" />
             </div>
             <div>
-              <Footer.Title title="Follow me" />
+              <Footer.Title className="!font-normal" title="Follow me" />
               <Footer.LinkGroup col>
                 <Footer.Link href="github.com/dale8nson">Github</Footer.Link>
                 <Footer.Link href="#">LinkedIn</Footer.Link>

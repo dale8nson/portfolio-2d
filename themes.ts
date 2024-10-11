@@ -37,7 +37,7 @@ export const abletonTheme: CustomFlowbiteTheme = {
   },
   "footer": {
     root: {
-      base: '[&_a]:font-[futura] [&_a]:text-black'
+      base: '[&_a]:font-[futura] font-normal'
     },
     "groupLink": {
       "link": {

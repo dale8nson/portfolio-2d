@@ -35,16 +35,16 @@ export function Navbar() {
     )
     slideDown.pause()
 
-    // ScrollTrigger.create({
-    //   trigger:"#hero",
-    //   animation: slideUp,
-    //   start:"top top"
-    // })
+    ScrollTrigger.create({
+      trigger:"#hero",
+      animation: slideUp,
+      start:"top top"
+    })
 
     ScrollTrigger.observe({
       target: window,
       onChangeY: self => {
-        console.log("velocityY: ", self.velocityY)
+        // console.log("velocityY: ", self.velocityY)
         if (self.velocityY > 1000) {
           slideUp.play()
         } else if (self.velocityY < -1000) {
@@ -147,7 +147,7 @@ export function Navbar() {
               <Link className="text-xs" href="#">Ableton for the classroom</Link>
               <Link className="text-xs" href="#">Ableton for colleges and universities</Link>
               <Link className="text-xs" href="#">Certified training</Link>
-              <Link className="text-xs !text-[#fd5948]" href="/example-about">About Ableton</Link>
+              <Link className="text-xs !text-[#fd5948]" href="/basic-webpage">About Ableton</Link>
               <Link className="text-xs" href="#">Jobs</Link>
               <Link className="text-xs" href="#">Apprenticeships</Link>
             </div>

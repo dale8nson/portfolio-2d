@@ -1,109 +1,139 @@
 "use client"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Canvas } from "@react-three/fiber";
-import { Pixi } from "./Pixi";
-import { Portrait3D } from "./Portrait3D";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
-import { Footer } from "flowbite-react";
 
-
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(ScrollTrigger, TextPlugin, useGSAP);
 
 export const About = () => {
 
   useGSAP(() => {
+    const tl = gsap.timeline({
+
+    })
     const sections = gsap.utils.toArray("#about .panel")
-    const horizontalScrollAnim = gsap.to(sections, {
-      xPercent: -100 / (sections.length - 1),
-      ease: "none"
-    })
-    ScrollTrigger.create({
-      animation: horizontalScrollAnim,
-      trigger: "#about",
-      start: "center center",
-      end: "+=50%",
-      scrub: true,
-      pin: true,
-      // markers: true,
-      // snap: {
-      //   snapTo: (1 / sections.length - 1),
-      //   // duration: 0.25,
-      //   ease:"none"
-      // }
-    })
-    const fadeUpAnim = gsap.from(".fade-up", {
-      opacity: 0,
-      y: "100%",
-      ease: "none"
-    })
-    ScrollTrigger.create({
-      animation: fadeUpAnim,
-      trigger: ".fade-up",
-      toggleActions: "restart reverse restart reverse",
-      start: "-100% 70%",
-      end: "+=200",
-      scrub: true,
-    })
+    
+    // const horizontalScrollAnim =
+      tl.set("#about, #about .panel", { y: 0 })
 
-    const fadeDownAnim = gsap.from(".fade-down", {
-      opacity: 0,
-      y: "-100%",
-      duration: .25,
-      ease: "none",
-    })
+      tl.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        // duration: 1,
+        scrollTrigger: {
+          trigger: "#about",
+          start: "center center",
+          end: "+=2000",
+          scrub: 0,
+          pin: true,
+          // pinReparent: true,
+          markers: true,
+        }
+      })
+      
+    // ScrollTrigger.create({
+    //   trigger: ".profile",
+    //   containerAnimation: horizontalScrollAnim,
+    //   start: "center 65%",
+    //   end: "center 51%",
+    // })
+    // ScrollTrigger.create({
+    //   trigger: ".tech",
+    //   containerAnimation: horizontalScrollAnim,
+    //   start: "center 65%",
+    //   end: "center 51%",
+    // })
+    // ScrollTrigger.create({
+    //   animation: horizontalScrollAnim,
+    //   trigger: "#about",
+    //   start: "top top",
+    //   end: "+=100%",
+    //   scrub: true,
+    //   pin: true,
+    // markers: true,
+    // // snap: {
+    //   // snapTo: (1 / sections.length - 1),
+    //   // duration: 0.25,
+    // //   ease:"none"
+    // // }
+    // })
+    // gsap.set(".fade-up", {
+    //   opacity: 0,
+    //   y: "100%"
+    // })
+    // const fadeUpAnim = gsap.to(".fade-up", {
+    //   opacity: 1,
+    //   y: 0,
+    //   ease: "none"
+    // })
+    // ScrollTrigger.create({
+    //   animation: fadeUpAnim,
+    //   trigger: ".fade-up",
+    //   start: "top bottom",
+    //   // end: "+=50",
+    //   end:"center center",
+    //   scrub: true,
+    //   markers:true
+    // })
 
-    ScrollTrigger.create({
-      animation: fadeDownAnim,
-      trigger: ".fade-down",
-      toggleActions: "restart reverse restart reverse",
-      start: "bottom 70%",
-      end: "+=200",
-      scrub: true,
-    })
+    // const fadeDownAnim = gsap.from(".fade-down", {
+    //   opacity: 0,
+    //   y: "-100%",
+    //   ease: "none",
+    // })
 
-    const textAnim = gsap.to('#about-heading', {
-      text: 'ABOUT'
-    })
+    // ScrollTrigger.create({
+    //   // containerAnimation: horizontalScrollAnim,
+    //   animation: fadeDownAnim,
+    //   trigger: ".fade-down",
+    //   start: "-100% bottom",
+    //   end: "center center",
+    //   scrub: true,
+    //   markers: true
+    // })
 
-    ScrollTrigger.create({
-      animation: textAnim,
-      trigger: "#about-heading",
-      start: "top 90%",
-      end: "+=100",
-      toggleActions: "restart reverse restart reverse",
-      scrub: true
-    })
+    // const textAnim = gsap.to('#about-heading', {
+    //   text: 'ABOUT'
+    // })
 
-    const techAnim = gsap.to('#tech-heading', {
-      text: 'TECHNOLOGIES I USE',
-    })
+    // ScrollTrigger.create({
+    //   animation: textAnim,
+    //   trigger: "#about-heading",
+    //   start: "top bottom",
+    //   end: "top center",
+    //   toggleActions: "restart reverse restart reverse",
+    //   scrub: true
+    // })
 
-    ScrollTrigger.create({
-      animation: techAnim,
-      containerAnimation: horizontalScrollAnim,
-      trigger: "#tech-heading",
-      start: "left 50%",
-      end: "+=300",
-      toggleActions: "restart reverse restart reverse",
-      scrub: true
-    })
+    // const techAnim = gsap.to('#tech-heading', {
+    //   text: 'TECHNOLOGIES I USE',
+    // })
+
+    // ScrollTrigger.create({
+    //   animation: techAnim,
+    //   containerAnimation: horizontalScrollAnim,
+    //   trigger: "#tech-heading",
+    //   start: "left 50%",
+    //   end: "+=300",
+    //   toggleActions: "restart reverse restart reverse",
+    //   scrub: true
+    // })
   })
   return (
-    <section id="about" className="flex items-center justify-start w-full h-screen flex-nowrap bg-black m-0">
-      <div className="panel w-screen h-screen bg-black m-0 flex flexRow align-middle items-center justify-between justify-items-center text-[#ee0000] font-[futura]">
+    <section id="about" className="flex  items-center font-[futura] flex-nowrap bg-black sticky top-0 z-50 h-screen w-[200%]">
+      <div className="panel profile w-screen h-full flex flex-row align-middle items-center justify-between justify-items-center text-[#ee0000] bg-black bg-opacity-50 font-[futura]">
         <div className="flex w-screen h-full justify-evenly align-middle items-center overflow-y-hidden mx-auto">
-          <div className="fade-up flex-col opacity-100 h-1/2 w-5/12 mx-auto my-auto self-justify-center ">
-            <div className="flex justifyCenter">
-              <h2 id="about-heading" className="mb-4 font-[futura-bold] text-6xl font-extrabold leading-none">
+          <div className="fade-up flex-col opacity-100 h-1/2 w-5/12 mx-auto my-auto justify-items-center align-middle items-center ">
+            <div className="flex justify-center items-center align-middle my-auto">
+              <h2 id="about-heading" className="mb-4 font-[futura] text-6xl leading-none">
                 &nbsp;ツイテ&nbsp;
               </h2>
             </div>
-            <p id="para" className="mb-6 text-2xl">
-              I'm a software developer with proficiency in a range of languages and both frontend and backend technologies. I am passionate about crafting functional software solutions and user experiences to meet client needs. I am skilled in problem-solving, communication, and love learning new technologies. I was a recent participant in the Victorian Government Digital Jobs Program, specialising in web development.
+            <p id="para" className="mb-6 text-xl overflow-y-scroll">
+              I'm a software developer with proficiency in a range of programming languages and both frontend and backend technologies. I am passionate about crafting functional and bespoke software solutions and user experiences to meet client needs. I'm "fresh from the academy", with training in the latest frontend web technologies currently used by business giants such as Facebook, Instagram, Netflix, Afterpay, Seek, Doordash and realestate.com.au. Please take a look at my portfolio, and if you like what you see, why don't we discuss what I can do for your next project?
             </p>
             <hr className="mb-5 border-gray-300" />
             <div className="flex items-center space-x-4">
@@ -111,20 +141,20 @@ export const About = () => {
               <BsLinkedin />
             </div>
           </div>
-          <div className="fade-down mx-auto h-1/2 w-5/12 self-justifyCenter my-auto">
-            <Pixi width={288} height={384}><Portrait3D /></Pixi>
-            {/* <img
+          <div className="fade-down mx-auto h-1/2 w-5/12 self-justify-center my-auto">
+            {/* <Pixi width={288} height={384}><Portrait3D /></Pixi> */}
+            <img
               className="fade-down objectCover rounded shadow-lg sm:h-96"
               src="/profile-picture Background Removed.png"
               alt=""
-            /> */}
+            />
           </div>
         </div>
       </div>
-      <div className="panel flex m-0 items-center !flex-shrink-0  text-[#ee0000] [&_svg]:!h-[1.5rem]">
+      <div className="panel tech flex   m-auto items-center h-full !flex-shrink-0  text-[#ee0000] [&_svg]:!h-[1.5rem]">
         <div className="flex-col  w-full h-1/2 mx-8 gap-8">
           <div className="w-full mb-8">
-            <h2 id="tech-heading" className="text-3xl font-bold font-[futura-bold] sm:text-4xl">ツカッテイルテクノロジー</h2>
+            <h2 id="tech-heading" className="text-3xl font-[futura] sm:text-4xl">ツカッテイルテクノロジー</h2>
           </div>
           <div className="flex gap-8 justify-between">
             <div className="">
