@@ -30,7 +30,11 @@ export const About = () => {
           scrub: 0,
           pin: true,
           // pinReparent: true,
+<<<<<<< HEAD
           markers: true,
+=======
+          // markers: true,
+>>>>>>> a3af00e (Fixed horizontal scroll)
         }
       })
       
