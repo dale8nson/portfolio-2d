@@ -32,6 +32,7 @@ export const About = () => {
           // pinReparent: true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           markers: true,
 =======
           // markers: true,
@@ -39,6 +40,9 @@ export const About = () => {
 =======
           // markers: true,
 >>>>>>> dc55db5 (Fixed horizontal scroll)
+=======
+          // markers: true,
+>>>>>>> 7118317 (Fixed horizontal scroll)
         }
       })
       
