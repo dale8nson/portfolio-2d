@@ -31,10 +31,14 @@ export const About = () => {
           pin: true,
           // pinReparent: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
           markers: true,
 =======
           // markers: true,
 >>>>>>> a3af00e (Fixed horizontal scroll)
+=======
+          // markers: true,
+>>>>>>> dc55db5 (Fixed horizontal scroll)
         }
       })
       
